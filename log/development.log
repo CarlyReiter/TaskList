@@ -337,3 +337,54 @@ Processing by TasksController#show as HTML
 Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/tasks/1" for 127.0.0.1 at 2018-09-17 16:18:01 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 37ms (Views: 34.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks/4" for 127.0.0.1 at 2018-09-17 16:18:07 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks/5" for 127.0.0.1 at 2018-09-17 16:18:11 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/views/tasks/show.html.erb:2:in `_app_views_tasks_show_html_erb___483179801281075530_70190308835240'
+
+Started POST "/__better_errors/623f34259e74db63/variables" for 127.0.0.1 at 2018-09-17 16:18:11 -0700
+Started GET "/tasks/4" for 127.0.0.1 at 2018-09-17 16:18:14 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks/4" for 127.0.0.1 at 2018-09-17 16:19:18 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tasks/5" for 127.0.0.1 at 2018-09-17 16:19:21 -0700
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"5"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms)
+
+
