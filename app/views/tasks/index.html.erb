@@ -1,8 +1,8 @@
-<h1>Carly's tasks:</h1>
-<ul>
+
+<ol>
   <% @tasks.each do |task| %>
   <li> <p>
     <%=task[:name] %> will take <%=task[:duration] %> minutes.
   </p> </li>
 <% end %>
-</ul>
+</ol>
