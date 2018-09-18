@@ -2,7 +2,8 @@
 <ol>
   <% @tasks.each do |task| %>
   <li> <p>
-    <%=task[:name] %> will take <%=task[:duration] %> minutes.
+    <%=task[:name] %>
+    -- this task requires Carly to <%=task[:description] %> and must be completed by <%=task[:completion_date] %>.
   </p> </li>
 <% end %>
 </ol>
