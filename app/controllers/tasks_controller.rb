@@ -21,4 +21,19 @@ class TasksController < ApplicationController
       head :not_found
     end
   end
+
+  def new
+    @task = Task.new
+  end
+
+  def create
+    task = Task.new(name: params[:task][:name] , description: params[:task][:description], completion_date: params[:task][:completion_date])
+
+    is_successful = task.save
+    if is_successful
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
 end
