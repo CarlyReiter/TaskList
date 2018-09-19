@@ -13,8 +13,10 @@ class TasksController < ApplicationController
 
   def show
     task_id = params[:id].to_i
-    @task = Task.find_by(id: [task_id])
+    # @task = Task.find(task_id)
+    @task = Task.find_by(id: task_id)
 
+    #have to use .find_by becasue need the nil below
     if @task.nil?
       head :not_found
     end

@@ -17,3 +17,18 @@ body {
   background-color: #000033;
   color: white;
 }
+
+header {
+  color: pink;
+  text-align: center;
+}
+
+strong {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+footer {
+  text-align: center;
+  font-style: italic;
+}

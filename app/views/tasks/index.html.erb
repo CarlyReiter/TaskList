@@ -1,9 +1,8 @@
 
 <ol>
   <% @tasks.each do |task| %>
-  <li> <p>
-    <%=task[:name] %>
-    -- this task requires Carly to <%=task[:description] %> and must be completed by <%=task[:completion_date] %>.
+  <li> <p><strong><%=task.name %></strong>
+    -- this task requires Carly to <%=task.description %> and must be completed by <%=task.completion_date %>.
   </p> </li>
-<% end %>
+  <% end %>
 </ol>
