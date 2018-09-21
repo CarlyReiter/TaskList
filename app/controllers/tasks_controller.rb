@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     # @task = Task.find(task_id)
     @task = Task.find_by(id: task_id)
 
-    #have to use .find_by becasue need the nil below
+    #have to use .find_by because need the nil below
     if @task.nil?
       head :not_found
     end
@@ -30,4 +30,26 @@ class TasksController < ApplicationController
     end
 
   end
+
+  def edit
+    task_id = params[:id].to_i
+    # @task = Task.find(task_id)
+    @task = Task.find_by(id: task_id)
+
+
+  end
+
+  def update
+    @task.update
+
+    is_successful = @task.save
+
+    if is_successful
+      redirect_to tasks_path
+    else
+      render :new
+    end
+
+  end
+
 end

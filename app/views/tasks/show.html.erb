@@ -1,11 +1,20 @@
 
-<p><strong>Task:</strong> <%= @task.name%></p>
-<p><strong>Description:</strong> <%= @task.description%></p>
-<p><strong>Task must be completed by:</strong> <%= @task.completion_date%></p>
+<p><strong>Task:</strong>
+  <%= @task.name%></p>
+
+<p><strong>Description:</strong>
+  <%= @task.description%></p>
+
+<p><strong>Task must be completed by:</strong>
+  <%= @task.completion_date%></p>
+
+<p>
+  <%=link_to "Edit This Task", edit_task_path %>
+  </p>
 
 
-<!-- Edit a task
+        <!-- Edit a task
 
-update each task's show page to include an edit link
-this will give the user a new page with a form that is pre-populated with the data about that task
-the site should take the user back to the task's show page after the task is updated -->
+        update each task's show page to include an edit link
+        this will give the user a new page with a form that is pre-populated with the data about that task
+        the site should take the user back to the task's show page after the task is updated -->
