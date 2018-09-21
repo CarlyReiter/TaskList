@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     is_successful = @task.save
 
     if is_successful
-      redirect_to root_path
+      redirect_to tasks_path
     else
       render :new
     end
