@@ -33,18 +33,16 @@ class TasksController < ApplicationController
 
   def edit
     task_id = params[:id].to_i
-    # @task = Task.find(task_id)
     @task = Task.find_by(id: task_id)
-
-
   end
 
   def update
-    @task.update
+    task_id = params[:id].to_i
+    @task = Task.find_by(id: task_id)
 
-    is_successful = @task.save
+    edit_successful = @task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
 
-    if is_successful
+    if edit_successful
       redirect_to tasks_path
     else
       render :new
