@@ -50,4 +50,18 @@ class TasksController < ApplicationController
 
   end
 
+  def destroy
+    task_id = params[:id].to_i
+    @task = Task.find_by(id: task_id)
+
+    delete_successful = @task.destroy
+
+    if delete_successful
+      redirect_to tasks_path
+    else
+      render :new
+    end
+
+  end
+
 end
