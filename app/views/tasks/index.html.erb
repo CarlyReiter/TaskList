@@ -5,7 +5,7 @@
     <strong><%=task.name %></strong>
      by <%=task.completion_date %>.
      <%=link_to "edit", edit_task_path(task.id) %>
-     <%=link_to "delete", delete_task_path(task.id) %>
+     <%=link_to "delete", delete_task_path(task.id)%>
   </p> </li>
   <% end %>
 </ul>

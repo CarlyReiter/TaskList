@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
 */
-body {
+/* body {
   background-color: #000033;
   color: white;
 }
@@ -31,4 +31,4 @@ strong {
 footer {
   text-align: center;
   font-style: italic;
-}
+} */

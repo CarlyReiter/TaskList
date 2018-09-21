@@ -46,6 +46,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path
     else
       render :new
+      #new or something else?
     end
 
   end
@@ -60,6 +61,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path
     else
       render :new
+      #new or something else?
     end
 
   end
