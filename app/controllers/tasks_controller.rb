@@ -60,4 +60,9 @@ class TasksController < ApplicationController
 
   end
 
+  def checkoff
+    task = Task.find_by(id: params[:id])
+    task.update(completion_date: Date.today)
+  end
+
 end

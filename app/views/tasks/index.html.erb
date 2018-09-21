@@ -9,6 +9,7 @@
      <%=link_to "Edit", edit_task_path(task.id) %> |
      <!-- <%=link_to "Delete Task", task_path(task), data: {confirm: "Are you sure you want to delete this task?", method: :delete}%> -->
      <%=link_to "Delete", task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete #{task.name}?" }%>
+     <%=link_to "Mark task as 'done'", checkoff_task_path(task), method: :checkoff, data: {confirm: "Are you sure you want to mark this task as done? #{task.name}?" }%>
 
      <!-- # when attaching method: to an html tag (same on forms) is a way of specifying which http verb to use. -->
      <!-- # verb go to delete verb? -->
