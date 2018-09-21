@@ -1,8 +1,10 @@
 
 <ul>
   <% @tasks.each do |task| %>
-  <li> <p><strong><%=task.name %></strong>
-    -- this task requires Carly to <%=task.description %> and must be completed by <%=task.completion_date %>.
+  <li> <p>
+    <strong><%=task.name %></strong>
+     by <%=task.completion_date %>.
+     <%=link_to "edit", edit_task_path(task.id) %>
   </p> </li>
   <% end %>
 </ul>
