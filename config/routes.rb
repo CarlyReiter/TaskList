@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   post '/tasks/:id/checkoff', to: 'tasks#checkoff', as: 'checkoff_task'
 
-
   delete '/tasks/:id', to: 'tasks#destroy'
   # as: 'delete_task'
 
