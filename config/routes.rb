@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  # root 'tasks#index'
+  root 'tasks#index'
+  # root route says what do I get for '/'
+  #localhost:3000 goes to route route
 
   get '/tasks', to: 'tasks#index', as: 'tasks'
 
@@ -13,7 +15,8 @@ Rails.application.routes.draw do
   patch '/tasks/:id', to: 'tasks#update'
 
 
-  delete '/tasks/:id', to: 'tasks#destroy', as: 'delete_task'
+  delete '/tasks/:id', to: 'tasks#destroy'
+  # as: 'delete_task'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
