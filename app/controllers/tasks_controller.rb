@@ -32,24 +32,21 @@ class TasksController < ApplicationController
   end
 
   def edit
-    # task_id = params[:id]
-    # @task = Task.find_by(id: task_id)
     @task = Task.find_by(id: params[:id])
+    #@task in form needs to know which instance to edit.
   end
 
   def update
-    # task_id = params[:id]
-    # @task = Task.find_by(id: task_id)
-    @task = Task.find_by(id: params[:id])
+    task = Task.find_by(id: params[:id])
+    # @task not needed, since not associated with a view
 
-    edit_successful = @task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
+    task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
 
-    if edit_successful
-      redirect_to tasks_path
-    else
-      render :new
-      #new or something else?
-    end
+      #can pass in strong parameter above
+      # @task.update(task_params)
+      redirect_to task_path(task.id)
+
+      #!!!!!NEED TO SEE CONDITIONAL IN UPDATE, IF FAILS.  SIMILAR TO ABOVE.
 
   end
 
@@ -58,17 +55,8 @@ class TasksController < ApplicationController
     # @task = Task.find_by(id: task_id)
     task = Task.find_by(id: params[:id])
     # !!!!No incidence variable needed if controller not communicating with the view.  Because destroy not getting a view, can be a local variable.
-    # Task.find_by(id: task_id).destroy???
     task.destroy
     redirect_to tasks_path
-    # delete_successful = @task.destroy
-
-    # if delete_successful
-    #   redirect_to tasks_path
-    # else
-    #   render :new
-    #   #new or something else?
-    # end
 
   end
 

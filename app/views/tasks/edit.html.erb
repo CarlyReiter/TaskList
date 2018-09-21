@@ -1,15 +1,21 @@
+<!-- #resplace with form patial for editing books -->
+
+<h1>So You Wanna Edit this Book?</h1>
 
 <%= form_with model: @task do |form| %>
-  <p>Please edit the following info:</p>
+  <p>Please edit any of the following info that you wish:</p>
 
   <%= form.label :name %>
-  <%= form.text_field :name, value: @task.name  %>
+  <%= form.text_field :name %>
+  <!-- <%= form.text_field :name, value: @task.name  %> -->
 
   <%= form.label :description %>
-  <%= form.text_field :description, value: @task.description %>
+  <%= form.text_field :description %>
+  <!-- <%= form.text_field :description, value: @task.description %> -->
 
   <%= form.label :completion_date %>
-  <%= form.text_field :completion_date, value: @task.completion_date %>
+  <%= form.text_field :completion_date %>
+  <!-- <%= form.text_field :completion_date, value: @task.completion_date %> -->
 
   <%= form.submit "Save Edits", class: "task-button" %>
 <% end %>
