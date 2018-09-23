@@ -1,16 +1,23 @@
 
 <ul>
-  <% @tasks.each do |task| %>
-  <li> <p><strong><%=task.name %></strong>
-         by
-        <%=task.completion_date %>.
+  <% @tasks.sort.each do |task| %>
+  <% if task.checkoff_status == true %>
+  <li> <p>  <strong class = "strikethrough"><%=task.name %></strong>
+    <%=link_to "View Details", task_path(task.id) %>
+    <%=link_to "Mark as 'Incomplete'", uncheck_task_path(task), method: :uncheck%>
+    <%=link_to "Remove Task from TaskList", edit_task_path(task), method: :delete, data: {confirm: "Are you sure you want to remove #{task.name} compeltely?" }%>
 
-     <%=link_to "View Taks Details", task_path(task.id) %> |
-     <%=link_to "Edit Task", edit_task_path(task.id) %> |
-     <%=link_to "Delete Task", task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete #{task.name}?" }%> |
-     <%=link_to "Mark Task 'Compelete'", checkoff_task_path(task), method: :checkoff %>
+    <% else %>
+    <li> <p><strong><%=task.name %></strong>
+      <%=link_to "View Details", task_path(task.id) %> |
+      <%=link_to "Edit", edit_task_path(task.id) %> |
+      <%=link_to "Delete", task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete #{task.name}?" }%> |
+      <%=link_to "Mark Task 'Compelete'", checkoff_task_path(task), method: :checkoff %>
+      <% end %>
 
-     <!-- # when attaching method: to an html tag (same on forms) is a way of specifying which http verb to use. -->
-  </p> </li>
+
+      <!-- # when attaching method: to an html tag (same on forms) is a way of specifying which http verb to use. -->
+    </p>
+  </li>
   <% end %>
 </ul>

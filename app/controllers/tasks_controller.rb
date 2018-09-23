@@ -68,6 +68,15 @@ class TasksController < ApplicationController
   def checkoff
     task = Task.find_by(id: params[:id])
     task.update(checkoff_status: true, completion_date: Date.today)
+
+    redirect_to tasks_path
+  end
+
+  def uncheck
+    task = Task.find_by(id: params[:id])
+    task.update(checkoff_status: false)
+
+    redirect_to tasks_path
   end
 
 end
