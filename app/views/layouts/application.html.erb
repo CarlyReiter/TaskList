@@ -7,17 +7,30 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css?family=Ropa+Sans|Shadows+Into+Light" rel="stylesheet">
 </head>
 
 <body>
   <header>
-    <h1>Carly's to do list</h1>
+    <h1>Carly's To Do list</h1>
+    <nav>
+      <ul>
+        <li>
+          <%=link_to "Main Task List", tasks_path%>
+        </li>
+
+        <li>
+          <%=link_to "Create a New Task", new_task_path%>
+        </li>
+    
+      </ul>
+    </nav>
   </header>
   <main>
     <%= yield %>
   </main>
   <footer>
-    <h5>Feel free to do any of these tasks for her!</h5>
+    <h5>Feel free to do any of these tasks for Carly!</h5>
   </footer>
 </body>
 </html>
