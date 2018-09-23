@@ -10,9 +10,11 @@
   <%= form.text_field :description %>
 
   <%= form.label :completion_date %>
-  <%= form.date_select(:completion_date, prompt: {month: 'Month', day: 'Day', Year: 'Year'}) %>
-
+  <%= form.date_select(:completion_date) %>
+  <!-- <%= form.date_select(:completion_date, prompt: {day: 'Day', month: 'Month', Year: 'Year'}) %> -->
   <!-- <%= form.text_field :completion_date %> -->
+
+
 
   <%= form.submit "Save Task", class: "task-button" %>
 <% end %>

@@ -1,14 +1,13 @@
 class TasksController < ApplicationController
+
+
   def index
     @tasks = Task.all
   end
 
   def show
-    task_id = params[:id].to_i
-    # @task = Task.find(task_id)
-    @task = Task.find_by(id: task_id)
+    @task = Task.find_by(id: params[:id])
 
-    #have to use .find_by because need the nil below
     if @task.nil?
       head :not_found
     end
@@ -18,8 +17,17 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  # private
+
+  # def task_params
+  #   return params.require(:task).permit(:name, :description, :completion_date)
+  # end
+
   def create
     @task = Task.new(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
+
+
+    # Not sure why the strong params won't allow me to pass in the task_params here instead of the long list of params.
 
     is_successful = @task.save
 
@@ -38,23 +46,20 @@ class TasksController < ApplicationController
 
   def update
     task = Task.find_by(id: params[:id])
-    # @task not needed, since not associated with a view
 
-    task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
+    is_successful = task.update(name: params[:task][:name], description: params[:task][:description], completion_date: params[:task][:completion_date])
+    #similar to create, I'm not sure why I'm unable to pass in the strong params here.
 
-      #can pass in strong parameter above
-      # @task.update(task_params)
-      redirect_to task_path(task.id)
-
-      #!!!!!NEED TO SEE CONDITIONAL IN UPDATE, IF FAILS.  SIMILAR TO ABOVE.
-
+      if is_successful
+        redirect_to tasks_path
+      else
+        render :edit
+      end
   end
 
   def destroy
-    # task_id = params[:id].to_i
-    # @task = Task.find_by(id: task_id)
     task = Task.find_by(id: params[:id])
-    # !!!!No incidence variable needed if controller not communicating with the view.  Because destroy not getting a view, can be a local variable.
+    # !!!!No incidence variable needed if controller not communicating with the view.
     task.destroy
     redirect_to tasks_path
 
